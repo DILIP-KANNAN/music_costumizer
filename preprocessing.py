@@ -69,4 +69,7 @@ preprocessed_data = {'features': X_scaled, 'labels': y}
 with open('preprocessed_data.pkl', 'wb') as f:
     pickle.dump(preprocessed_data, f)
 
+with open('scaler.pkl', 'wb') as scaler_file:
+    pickle.dump(scaler, scaler_file)
+
 print("Preprocessing complete. Data saved as 'preprocessed_data.pkl'.")
