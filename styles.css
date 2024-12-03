@@ -65,3 +65,20 @@ footer {
     font-size: 0.8rem;
     color: #ddd;
 }
+
+#chatBox {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.user {
+    text-align: right;
+    color: rgb(255, 255, 255);
+    font-size: large;
+}
+.bot {
+    text-align: left;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+}

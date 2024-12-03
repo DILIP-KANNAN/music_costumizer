@@ -37,17 +37,34 @@ document.querySelectorAll('.question-btn').forEach((button) => {
     button.addEventListener('click', () => {
       const userMessage = button.innerText;
   
-      fetch('http://localhost:5001/chat', {
+      fetch('http://127.0.0.1:5001/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage })
-      })
-        .then(response => response.json())
-        .then(data => {
-          const botResponse = data.response;
-          displayMessage(botResponse, 'bot'); // Display bot's response
-        })
-        .catch(error => console.error('Error:', error));
+        headers: {
+            'Content-Type': 'application/json',  // Ensure the Content-Type is correct
+        },
+        body: JSON.stringify({ message: userMessage })  // Send the message as a JSON string
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();  // Parse the response as JSON
+    })
+    .then(data => {
+        const botResponse = data.response;
+        displayMessage(userMessage, 'user');
+        displayMessage(botResponse, 'bot');  // Display bot's response
+    })
+    .catch(error => console.error('Error:', error));  // Catch and log errors
     });
   });
+
+  function displayMessage(message, sender) {
+    const chatBox = document.getElementById('chatBox'); // Replace 'chatBox' with your actual chat container ID
+    const messageElement = document.createElement('div');
+    messageElement.className = sender; // 'user' or 'bot'
+    messageElement.textContent = message;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
+}
   
