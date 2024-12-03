@@ -33,3 +33,21 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
         alert('An error occurred while classifying the genre.');
     }
 });
+document.querySelectorAll('.question-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const userMessage = button.innerText;
+  
+      fetch('http://localhost:5001/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage })
+      })
+        .then(response => response.json())
+        .then(data => {
+          const botResponse = data.response;
+          displayMessage(botResponse, 'bot'); // Display bot's response
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  });
+  
