@@ -1,18 +1,31 @@
- /* styles.css */
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #6a11cb, #2575fc);
-    color: white;
+    background: /*linear-gradient(to bottom, #6a11cb, #2575fc)*/ white;
+    color: rgba(0, 0, 0, 0.874);
     text-align: center;
 }
 
+.bg{
+    background-image: url(bg.PNG);
+}
+
+.head{
+    padding-top: 15px;
+    height: 35px;
+    background: rgba(127, 255, 212, 0.797);
+    border: #000000;
+    color: rgb(0, 0, 0);
+    font-size: larger;
+}
+
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 50px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(243, 119, 119, 0.799);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -38,7 +51,7 @@ input[type="file"] {
 }
 
 button {
-    background-color: #4caf50;
+    background-color: #4caf4fcf;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -49,7 +62,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049d1;
 }
 
 #result {
@@ -63,7 +76,32 @@ button:hover {
 footer {
     margin-top: 30px;
     font-size: 0.8rem;
-    color: #ddd;
+    color: linear-gradient(to-bottom #2c262673,rgba(0, 0, 0, 0.422));
+}
+
+.align {
+    display: flex;
+    justify-content: center; /* Centers the second element */
+    position: relative; /* Enables positioning of the first element */
+  }
+
+#predefined-questions{
+    margin : 20px;
+}
+
+.float{
+    position:absolute;
+    top: 30px;
+    left:150px;
+    width:150px;
+    height: 80px;
+    color: #000000;
+    background:rgba(210, 127, 55, 0.35);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 35px;
+    margin-bottom: 20px;
 }
 
 #chatBox {
@@ -71,14 +109,19 @@ footer {
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
+    background-color: rgba(127, 255, 212, 0.797);
 }
 .user {
     text-align: right;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: large;
 }
 .bot {
     text-align: left;
-    color: rgb(255, 255, 255);
+    color: rgb(245, 100, 100);
     font-size: larger;
+}
+/*#predefined-questions.question-btn{
+    margin : 10px;
+    padding: 10px;
 }
